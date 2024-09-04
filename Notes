@@ -1,0 +1,128 @@
+Java - is a programing language.
+
+Selenium -  is a tool for automating web browsers.
+
+Cucumber - is a tool for writing and running automated tests in plain language called gherkin.
+It helps you describe how a web application should behave in human-readable sentences,
+making it easier to understand and share with non-technical team members.
+
+-No main method for execution - no control of execution
+-Smoke Testing-To ensure the most critical functions of the software work after a new build or update.
+-Regression- To ensure that new code changes haven’t introduced new bugs or broken existing functionality.
+
+Framework - is a structure that guides how to write and execute tests in a consistent way.
+
+Cucumber as a tool: explained in packages/classes
+Cucumber/BDD as a framework: behavior driven development is a technique where your test cases are written in plain English language
+
+
+HOW TO CREATE A NEW PROJECT IN CUCUMBER:
+1-File-new-Project-Maven-groupId-artifactId-create
+2-Delete main folder
+3-Open resources in Java folder
+
+group Id-the name of the organisation you work for (for now write syntax)
+artifact Id-name of the project
+
+1.click pom.xml file + add dependencies
+
+src/main: here we write the code to develop the application.
+src/test: here we write th code to test the application.
+Here we delete main folder because we will work with test we only need the Test folder.
+
+In Java - we keep all java stuff (classes and packages)
+In resources - we keep all the non java stuff
+
+In selenium we don't have reporting option, no execution control, no standart format
+of writing the code. To achieve all these, we need to integrate our scripts
+with additional tools and structure (framework).
+
+In our cucumber project we need:
+java- selenium-cucumber-apache poi dependencies.
+
+CUCUMBER AS A TOOL EXAMPLE
+User Story: 1234 - Valid admin login
+Scenario:
+
+GIVEN - pre condition
+WHEN - actions
+THEN -expected result
+AND - supporting tag
+
+Given user is navigated to HRMS application
+When user enters admin username and password
+And user clicks on login button
+Then admin user is successfully logged in
+(shkruhet ne veten e trete ai/ajo)
+
+IN CUCUMBER EVERY TEST CASE WILL BE CONSIDERED AS A SCENARIO
+
+We write scenario in a file called feature file.
+extension.feature
+
+
+STEPS
+1.Delete main
+2.Right click on 'test' create resources.
+3.Create Login.features under resources.
+4.Create the Scenario in Login.feature class and press Run.
+5.All the steps will show in the console.
+6.Copy the steps and create a 'steps' package in Java also create a class LoginSteps and paste the steps there.
+7.go to login.feature, right click, press 'go to' + declaration. (like that you link the login feature with the login steps).
+
+RULES FOR WRITING THE SCENARIO:
+-once  the step definition is created don't add any space or any other character on it
+-don't create duplicate steps, steps have to be unique
+
+CUCUMBER ENCOURAGES CODE REUSABILITY (to reuse a code dmth mos me shkr sh her t njejten por me riperdor)
+
+
+
+USER STORY NR 2 - Employee search
+Scenario-search employee by id
+since i already finished the first 4 steps use the same ones (code reusability) just add one more step in another class
+called Employee.feature.
+Separate cases for separate user stories.
+
+Scenario: Valid admin login
+    Given user is navigated to HRMS application
+    When user enters admin username and password
+    And user clicks on login button
+    Then user is successfully logged in
+    When user clicks on PIM option
+    And user clicks on Employee List Option
+    When  user enters employee id
+    And user clicks on search button
+    Then user should be able to see employee details
+
+I copy paste kto steps tek EmployeeSearch.feature dhe Run. Ne console shikon steps
+qe duhet te besh copy dhe paste tek EmployeeSteps.
+Remember for feature file we need step definitions to execute a code.
+
+RUNNER CLASS- we use this class to execute specific scenarios if we don't want to execute all of them. (create this package under java)
+In Runners package we will create all the test runner classes.
+
+UTILS-COMMON METHODS- this class contains methods which are commonly used across different pars of a program
+
+*There is a need through which I can execute one scenario among multiple. Qe t'mos i run tgjith scenarions gjithmone duhet ti vesh tags qe t mund t exetute dhe vec e vec.
+*We use "or" keyword to execute scenarios from either conditions
+if one condition is true, it will execute the scenarios.
+*We use "and" keyword to execute the scenarios when both conditions must be true.
+*Tags in runner class and in scenarios have to be the same
+
+
+*Cross browser testing --> when script execute against multiple browsers
+
+*Centralized Configuration: All configuration details are managed in a single file.
+ Easy Maintenance: Any change to the configuration can be done in the .properties file without touching the test code.
+ Reusability: This setup allows you to reuse the same configuration across different test classes and scenarios.
+ This is how the ConfigReader class fits into a Cucumber-based automation framework, helping to manage test configurations effectively.
+
+
+*Tek Utils shto dhe config reader dhe constants te cilat kane methods you can call them to reuse the code so you don't have to write some specific code over & over again.
+Pastaj tek stepdeffinitions e Zevendson kodin e gjate, you call the short methods.
+
+Pasi i ke shkr methods ne CommonMethods shko tek LoginSteps.Java dhe zevendso methods per short code.
+Pastaj tek EmployeeSeardch steps shkr kodin e shkurter qe i lexon nga klasat qe kane kode per tu riperdor.
+
+
