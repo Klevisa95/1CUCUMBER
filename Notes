@@ -126,5 +126,8 @@ Pasi i ke shkr methods ne CommonMethods shko tek LoginSteps.Java dhe zevendso me
 Pastaj tek EmployeeSeardch steps shkr kodin e shkurter qe i lexon nga klasat qe kane kode per tu riperdor.
 
 
+*NEVER add a @tag before writing the Feature
+
+FILE PATH:
 C:\Users\klevi\IdeaProjects\1CUCUMBERsrc\test\resources\config\config.properties
 C:\Users\klevi\IdeaProjects\1CUCUMBER\src\test\resources\config\config.properties
