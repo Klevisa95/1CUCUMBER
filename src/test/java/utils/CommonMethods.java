@@ -19,6 +19,7 @@ public class CommonMethods {
 
         ConfigReader.readProperties(Constants.CONFIGURATION_FILEPATH); //this will read the final parameters from Constants class (parameters that don't change)
 
+
         switch (ConfigReader.getPropertyValue("browser")){ //per tu hapur ne webs te ndryshme e merr kte nha configReader class
             case"chrome":
                 driver=new ChromeDriver();
