@@ -131,3 +131,15 @@ Pastaj tek EmployeeSeardch steps shkr kodin e shkurter qe i lexon nga klasat qe 
 FILE PATH:
 C:\Users\klevi\IdeaProjects\1CUCUMBERsrc\test\resources\config\config.properties
 C:\Users\klevi\IdeaProjects\1CUCUMBER\src\test\resources\config\config.properties
+
+
+
+*HOOKS --> a separate class in framework to write a pre condition and post condition so you don't have to rewrite them all the time in every scenarion in different feture files.
+When we execute the code, hooks class will execute pre condition first and then all the test cases will be executed
+and then post condition will execute last.
+*DON'T FORGET TO COMMENT STEPS FROM ALL FEATURE FILES FOR PRE AND POST CONDITION
+per te execute te gjitha file features same time put @test tags tek te gjitha si common tag dhe shko tek steps="@test" that's how you execute all of them same time
+
+*In the framework we cannot pass any hard coded data, cucumber allows us to perform data driven testing.
+
+*//perdor @Background per common steps
