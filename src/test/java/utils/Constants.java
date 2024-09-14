@@ -9,7 +9,7 @@ public class Constants {
 
     public static final int IMPLICIT_WAIT=10;   //per t mos e shkr kudo e marrim direkt nga ktu
 
-    public static final int EXPLICIT_WAIT=20;
+    public static final int EXPLICIT_WAIT=30;
 
 
 
