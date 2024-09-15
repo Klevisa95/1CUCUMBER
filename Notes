@@ -146,6 +146,7 @@ per te execute te gjitha file features same time put @test tags tek te gjitha si
 
 *data driven testing --> when one scenario executed against multiple set of data, we call it data driven testing approach. (video 5)
 
+<<<<<<< HEAD
 *Scenario: Runs once with a single set of data.
 *Scenario Outline: Runs multiple times with different sets of data using the Examples table.
 *ORDER OF EXECUTION--> HOOKS - BACKGROUND - SCENARIO
@@ -155,3 +156,5 @@ Summary of Execution Order:
 Background steps (if any)
 Scenario steps
 @After hooks
+=======
+>>>>>>> origin/master
