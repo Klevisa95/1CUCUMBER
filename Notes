@@ -146,6 +146,7 @@ per te execute te gjitha file features same time put @test tags tek te gjitha si
 
 *data driven testing --> when one scenario executed against multiple set of data, we call it data driven testing approach. (video 5)
 
+<<<<<<< HEAD
 *Scenario: Runs once with a single set of data.
 *Scenario Outline: Runs multiple times with different sets of data using the Examples table.
 *ORDER OF EXECUTION--> HOOKS - BACKGROUND - SCENARIO
@@ -155,3 +156,51 @@ Summary of Execution Order:
 Background steps (if any)
 Scenario steps
 @After hooks
+=======
+>>>>>>> origin/master
+
+*Page Object Model -->The Page Object Model (POM) is a design pattern used in Selenium and Cucumber to create an organized and reusable structure for web page automation.
+example:
+Page Class: Holds the web elements and methods for interacting with a specific page.
+Step Definitions: Use the Page Class methods to interact with the web page in a structured way.
+Feature File: Contains the scenario in plain language.
+
+
+*Constructor we use to initialize the object and the elements of the class we will call selenium page factory
+to initialize all elements of the class and we call it constructor.
+
+
+
+
+
+
+
+
+
+
+
+3:25' - 1:40
+
+2:40 -1:20
+
+2 -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

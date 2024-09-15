@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.LoginPage;
 import utils.CommonMethods;
 import utils.ConfigReader;
 
@@ -31,14 +32,16 @@ public class LoginSteps extends CommonMethods {
     }
     @When("user enters admin username and password")
     public void user_enters_admin_username_and_password() throws InterruptedException {
-        WebElement usernameTextField = driver.findElement(By.xpath("//*[@id='txtUsername']"));
+        LoginPage lp = new LoginPage(); //kte e marrim nga login page nga pages class dhe na ndihmon me webelements
+
+        //WebElement usernameTextField = driver.findElement(By.xpath("//*[@id='txtUsername']"));
        // usernameTextField.sendKeys("Admin"); //STEP3
       // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //implicit wait
-        sendText(usernameTextField, ConfigReader.getPropertyValue("username")); //we use commonmethods class x ta shkr shkurt, it will read the value of "username"
+        sendText(lp.usernameTextField, ConfigReader.getPropertyValue("username")); //we use commonmethods class x ta shkr shkurt, it will read the value of "username"
 
 
-        WebElement passwordTextField = driver.findElement(By.xpath("//*[@id='txtPassword']"));
-        sendText(passwordTextField, ConfigReader.getPropertyValue("password")); //pra ConfigReader class ka 1 getproperty method qe aty you can call config.properties info. Dmth we call the username na vjen admin. Kjo fjali ka 2 funksione: clear the data and send data. Vjen nga common methods
+       // WebElement passwordTextField = driver.findElement(By.xpath("//*[@id='txtPassword']"));
+        sendText(lp.passwordTextField, ConfigReader.getPropertyValue("password")); //pra ConfigReader class ka 1 getproperty method qe aty you can call config.properties info. Dmth we call the username na vjen admin. Kjo fjali ka 2 funksione: clear the data and send data. Vjen nga common methods
         //passwordTextField.sendKeys("Hum@nhrm123");
 
 
@@ -46,8 +49,9 @@ public class LoginSteps extends CommonMethods {
     }
     @When("user clicks on login button")
     public void user_clicks_on_login_button() throws InterruptedException {
-        WebElement loginBtn=driver.findElement(By.xpath("//input[@id='btnLogin']"));
-       click(loginBtn);   //click coming from commonMethods, it will wait for element to be clickable
+        LoginPage lp=new LoginPage(); //nga ktu marrim short webelements nga pages class
+       // WebElement loginBtn=driver.findElement(By.xpath("//input[@id='btnLogin']"));
+       click(lp.loginBtn);   //click coming from commonMethods, it will wait for element to be clickable
         // loginBtn.click(); //STEP4
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //implicit wait
 
