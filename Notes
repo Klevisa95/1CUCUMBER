@@ -143,3 +143,6 @@ per te execute te gjitha file features same time put @test tags tek te gjitha si
 *In the framework we cannot pass any hard coded data, cucumber allows us to perform data driven testing.
 
 *//perdor @Background per common steps
+
+*data driven testing --> when one scenario executed against multiple set of data, we call it data driven testing approach. (video 5)
+
