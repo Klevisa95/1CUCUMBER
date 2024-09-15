@@ -33,4 +33,13 @@ Feature: add employee scenario
     Then employee added successfully
 
 
-
+  @ddt
+  Scenario Outline: adding multiple employees from feature file
+    When user enters "<firstName>" and "<middleName>" and enter "<lastName>"
+    And user clicks on save button
+    Then employee added successfully
+    Examples:
+      | firstName     | middleName    | lastName    |
+      | donald        | ms            | duck        |
+      | tamoha        | ms            | jimo        |
+      | joe           | ms            | trump       |
