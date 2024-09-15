@@ -167,11 +167,15 @@ Feature File: Contains the scenario in plain language.
 
 
 *Constructor we use to initialize the object and the elements of the class we will call selenium page factory
-to initialize all elements of the class and we call it constructor.
+to initialize all elements of the class and we call it constructor.s
 
 
-
-
+Step-by-Step Opening Order Recap:
+Step 1: Start with the Page Object Model classes in the pages package (like LoginPage).
+Step 2: Define the Step Definition classes in the steps package (like LoginSteps, AddEmployeeSteps).
+Step 3: Set up runner classes in the runners package to execute your tests.
+Step 4: Use utility classes (CommonMethods, ConfigReader) from the utils package for reusable code.
+Step 5: Organize your Cucumber feature files under the resources/features folder and use hooks for setup and teardown in Hooks.java.
 
 
 

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CommonMethods {
+public class CommonMethods extends PageInitializer{ //extend pageinitializer to reuse code so when you extend common methods in other pages you also access page initializer code
 
     public static WebDriver driver;
 
@@ -32,6 +32,7 @@ public class CommonMethods {
         }
         driver.manage().window().maximize(); //to maximize the window
         driver.get(ConfigReader.getPropertyValue("url"));  //to launch the web
+        initializePageObjects(); //from page initializer class
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT)); //This means WebDriver will wait for a specified maximum amount of time when trying to find an element on the page before throwing a NoSuchElementException.
     }
 
