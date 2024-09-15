@@ -179,11 +179,12 @@ Step 5: Organize your Cucumber feature files under the resources/features folder
 
 
 
+*Write some data google sheets - save it as excel file - copy paste it in testdata folder
+*to read it create Excel Reader class
 
 
 
 
-3:25' - 1:40
 
 2:40 -1:20
 
