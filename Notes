@@ -181,14 +181,20 @@ Step 5: Organize your Cucumber feature files under the resources/features folder
 
 *Write some data google sheets - save it as excel file - copy paste it in testdata folder
 *to read it create Excel Reader class
+*We can achieve data driven testing using data table, examples table and using excel file when the volume of data is big
+
+Data Table vs Examples Table
+data table is specific for just one step.
+However, examples table is for complete scenario.
+
+Page initializer class --> to create objects of the classes. We call this in CommonMethods.
+
+
+Reporting in Framework--> means how many test cases you've executed
+To open report right click on the report - open in - browser - chrome
 
 
 
-
-
-2:40 -1:20
-
-2 -1
 
 
 
