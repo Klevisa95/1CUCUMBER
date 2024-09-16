@@ -18,6 +18,12 @@ public class DashboarPage extends CommonMethods {   //per t gjet webelements per
     @FindBy(id="menu_pim_addEmployee")
     public WebElement addEmployeeButton;
 
+
+    @FindBy(id="welcome")
+    public WebElement welcomeAdminLocator;
+
+
+
     public DashboarPage(){  //use this constructor to initialize these locators
 
 

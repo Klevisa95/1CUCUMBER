@@ -41,6 +41,8 @@ public class AddEmployeePage extends CommonMethods { //create this to reuse code
     public WebElement employeeIdLocator;
 
 
+
+
     public AddEmployeePage(){
 
         PageFactory.initElements(driver, this);

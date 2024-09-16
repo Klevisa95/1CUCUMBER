@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,6 +62,17 @@ public class LoginSteps extends CommonMethods {
     @Then("user is successfully logged in")
     public void user_is_successfully_logged_in() {
         System.out.println("My test passed");
+
+        //assertion to check if the element exists
+        //assertTrue(condition): to check if condition is true or false
+       // Assert.assertEquals();
+        Assert.assertTrue(dashboardPage.welcomeAdminLocator.isDisplayed());
+
+        // Assert.assertTrue() method to verify that a particular element (represented by dashboardPage.welcomeAdminLocator) is visible on the webpage.
+        //dashboardPage.welcomeAdminLocator refers to a WebElement, likely representing the "Welcome, Admin" text or similar element on the dashboard page.
+        //.isDisplayed() checks whether that WebElement is currently visible to the user on the webpage.
+        //Assert.assertTrue() checks whether the result of .isDisplayed() is true.
+        //If the element is visible (i.e., isDisplayed() returns true), the assertion passes, and the test continues. If the element is not visible (i.e., isDisplayed() returns false), the assertion fails, causing the test to stop and report an error.
 
 
     }

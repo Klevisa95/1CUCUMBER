@@ -195,13 +195,233 @@ To open report right click on the report - open in - browser - chrome
 
 We have to add maven mojo to pom.xml to generate reports.
 
+In target open cucumber htmls reports -  overview features.html - open in - browser - chrome  (aty eshte detailed report).
+
+
+Scenario class --> holds the complete status of the execution such as test case name, status etc
+
+ASSERTIONS- Assertions make sure the application works as expected by comparing results within Cucumber scenarios.
+assertTrue(condition): Passes if the condition is true.
+assertFalse(condition): Passes if the condition is false.
+assertEquals(actual, expected): Passes if actual equals expected.
+
+
+
+
+======================================================================================================================================================================================================================================================
+=============================================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================
+
+************************  API  ************************
+
+CLASS 01
+
+Presentation Layer : what we see on screen (buttons, menus, dropdowns).
+Application Layer  : where the business logic is written.
+Data Layer         : where the data comes from (database).
+
+1 Tier Architecture: when your presentation layer, application and layer are available at one place.
+2 Tier Architecture: when the presentation layer is available at one place and data layer is available at another layer.
+3 Tier Architecture: when presentation layer is available at one place, application layer at a second place and data layer at a 3rd place.
+
+Standalone App     : desktop based application.
+
+N-Tier Architecture (distributed architecture) (fb,ig examples):
+-it's an extended version of 3Tier architecture
+
+To Connect All These Systems We Need API.
+-to make the communication between the systems developed in different programming languages
+-to maintain the security of the data
+
+front end - selenium
+back end  - sql
+
+To identify the glitch in the API, we need to TEST them.
+Swagger Document- it is the centralized document we have for the API testing and the instructions (we get this doc from scrum master od development team)
+
+BASE URL  : www.amazon.com
+END POINTS: /toys, /homedecor etc
+
+API's which are hosted over the internet are called web services.
+All web services are API's but all API's are NOT web services.
+
+Operations Performed in API testing: CRUD OPERATIONS
+1.Create
+2.Retrieve
+3.Update
+4.Delete
+ =CRUD
+
+
+HTTP - hyper text transfer protocol - this is the internet protocol which we used to communicate with the website.
+
+=======================================================================================================
+
+CLASS 02
+
+2 types of web services:
+REST - representational state transfer, fast, less secured,
+SOAP - simple object access protocol. slow, more secured,
+
+* WE WILL WORK WITH REST API
+STATEFUL application: when the server memory state is set to true, we call it stateful application. Disadvantage: not safe
+STATELESS application: here the state of the server memory is set to false.
+In stateless app we work with sessionId/Tokens
+
+URI=URL+ENDPOINT
+
+JWT is of 3 types:
+Bearer token
+Grants
+MAC token
+
+
+STEP BY STEP:
+1.Download Postman
+New Collection - Rename - Add request - Create an admin -take the base url: hrm.syntaxtechs.net/syntaxapi/api + get the end point of ''CREATE USER''and paste at post + shko tek body check 'raw' 'Json' + add the data : {
+                                                                                                                                                                                                                              "name": "adminbatch177",
+                                                                                                                                                                                                                              "email": "test@batch177.com",
+                                                                                                                                                                                                                              "password": "Test@1233"
+                                                                                                                                                                                                                          }                                        + shko tek 'Headers' Key:content-type, Value:application/json, + SAVE + SEND (nqs ska BODY  ne method ateher ska as head)
 
 
 
 
 
 
+2.Go to syntaxbatchapi 3 pika click add request - Rename it Generate token - select method 'Post' - paste the link and end point of generate token - click Body - raw -json - paste the data: {
+                                                                                                                                                                                "email": "string",
+                                                                                                                                                                                "password": "string"
+                                                                                                                                                                              }                                 - go to headers Key: content type - value: application/json  - save - send -
 
+
+
+
+3.same steps to create an employee - ktu duhet me paste token tek authorization - send
+
+4.Getanemployee e njejta process
+
+
+
+=====================================================================================================================================================
+
+
+CLASS 3
+
+QUERY parameter - is extra information added to a URL after a ?
+exmpl:
+https://example.com/search?query=java
+
+-When you work with stateful application, instead of bearer token you should select "basic auth " in authorization tab then enter username and password and save it.
+
+
+
+5. get job titles - mos add as head as body just send dhe do dali lista me jobs positions
+
+6. update the employee - here we change complete data (data e gjen tek hrm swagger page )
+
+7.partially update the employee
+
+
+-PUT: to update the data completely
+-PATCH: to update the info partially
+-Delete employee
+*cdo 12 ore update the Token.
+
+
+========================================================================================================================================
+
+CLASS 04
+1.create Environments (here add base url : hrm.syntaxtechs.net/syntaxapi/api)
+ and  Globals (here add: CreateAdminUser + endpoint etc me rradhe te gjitha shiko Postman per shembuj)
+
+ 2.Tek search zevendso full link me: {{QABaseUrl}}{{CreateAdminUser}} t gjitha me rradhe
+
+ 3.Tek global variable vendos JWT (the token) so you don't have to update it everyday tek cdo (post-get-put etc).
+
+ 4.shko tek create an employee dhe tek KEY add this authorization and JWT
+
+ 5.then go back to Authorization and click "no auth" (dhe kte beje per tgjitha ne liste (put-get-post etc)
+
+ 6.pastaj click 3 pikat + click ''run collection'' +
+
+*Postman has all the methods define in it.
+Pm is the postman  object for chai assertion library which gives us all the assertions
+via this library we can validate anything.
+
+validate status code
+validate response time
+validate message from the body
+validate key va value
+
+
+pm.test("Validate key and value", function(){
+    const responseJson = pm.response.json();
+    pm.expect(responseJson.employee.emp_firstname).to.eql("molapipilola");
+});
+
+
+validating the value in json format
+
+
+
+****************************** Rest Assured**************************
+
+
+-Rest Assured is a DSL (domain specific language) which means it's designed to make API testing easier to understand and write. It lets you write tests that look almost like simple English sentences.
+Instead of manually handling HTTP requests, you use Rest Assured to make requests and check responses in a clean, easy way.
+
+given().
+    baseUri("https://api.example.com").
+when().
+    get("/users").
+then().
+    statusCode(200);
+
+IN API TESTING:
+given(): to prepare the request (e.g., base URL) - precondition
+when(): send the request (like GET, POST) - to perform the action
+then(): check the response (e.g., status code 200) - verification
+
+This makes it simple to test APIs.
+
+
+-while in postman in all MANUAL testing.
+-rest web services this allows us to send data in json format.
+-JSON consist of key and value pairs.
+
+IN API theres manual testing via Postman and automate via RestAssured
+
+To verify and validate the data from the body use Hamcrest Matchers.
+This class contains methods to performs assertions.
+jsonPath --> this is class
+jsonPAth()--> this is the method of jsonPath class
+
+
+JUnit is a popular unit testing framework for Java programming. It helps developers write and run repeatable tests for their Java code, ensuring that individual units (methods or classes) work as expected.
+
+Key Features of JUnit:
+Annotations: JUnit uses annotations to define test methods and manage the test life cycle.
+
+@Test: Marks a method as a test method.
+@BeforeEach / @Before: Runs before each test method to set up any preconditions.
+@AfterEach / @After: Runs after each test method to clean up resources.
+@BeforeAll / @BeforeClass: Runs once before all test methods in a class, typically used for setup that's shared across tests.
+@AfterAll / @AfterClass: Runs once after all tests, often used to clean up shared resources.
+Assertions: JUnit provides several assertion methods to verify that the test results are as expected.
+
+assertEquals(expected, actual): Verifies that the expected and actual values are equal.
+assertTrue(condition): Ensures that a condition is true.
+assertFalse(condition): Ensures that a condition is false.
+assertNotNull(object): Ensures that the object is not null.
+
+Test Runners: JUnit test runners execute the tests and report the results. Modern IDEs (like IntelliJ or Eclipse) and build tools (like Maven or Gradle) support running JUnit tests.
+
+Parameterized Tests: JUnit allows you to run the same test with different data using parameterized tests.
+
+Integration: JUnit integrates well with popular Java build tools (e.g., Maven, Gradle), continuous integration tools (e.g., Jenkins), and other testing libraries like Selenium or TestNG.
+
+JUnit is commonly used in Test-Driven Development (TDD) practices, where tests are written first, and then the code is written to pass those tests.
 
 
 

@@ -101,6 +101,7 @@ public class AddEmployeeSteps extends CommonMethods {
             sendText(addEmployeePage.usernameEmp, employeeMap.get("Username"));
             sendText(addEmployeePage.passwordEmp, employeeMap.get("Password"));
             sendText(addEmployeePage.confirmPass, employeeMap.get("ConfirmPassword"));
+            String empIDValue= addEmployeePage.employeeIdLocator.getAttribute("value"); //storing the emp id from the locator
 
             //we are storing the emp id from the locator
             String empIdValue = addEmployeePage.employeeIdLocator.getAttribute("value");
@@ -108,6 +109,26 @@ public class AddEmployeeSteps extends CommonMethods {
 
             Thread.sleep(2000);
 
+
+            click(addEmployeePage.saveBttn);
+            sendText(addEmployeePage.employeeIdLocator, empIDValue);
+            click(employeeSearchPage.searchBtn);
+
+            List<WebElement> rowData=
+                    driver.findElements(By.xpath("//table[@id='resultTable']/tbody/tr"));
+
+
+            for(int i= 0; i<rowData.size(); i++){
+
+                //it will give me the data from all the cell of the row
+               String rowText= rowData.get(i).getText();
+                System.out.println(rowText);
+
+                String expectedDataFromExcel = empIDValue + " " + employeeMap.get("FirstName")+ " "+ employeeMap.get("MiddleName")+ " "+ employeeMap.get("LastName");
+                System.out.println(expectedDataFromExcel);
+                Assert.assertEquals(expectedDataFromExcel, rowData);
+
+            }
             //we want to add many employees so:
             click(dashboardPage.addEmployeeButton);
             Thread.sleep(2000);
