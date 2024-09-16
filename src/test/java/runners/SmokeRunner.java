@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         glue="steps", //used to stick together the step definitions with features
         dryRun = false, //kur dryRun=true na jep ne console the step definition that we're missing also it stops the execution, for execution set dryRun=false (e perdorim kur duam te shtojme new scenarion tek feature dhe aty na jep ne console step deffinition qe ta cojme ne steps
         //tags they identify the scenarios in a group and will execute specific one
-        tags = "@test1234",  // pra run vec scenario tek @sprint4 jo scenario e tjera. Ne kte rast ose ali ose nafiseh. Nqs eshte @ali and @nafiseh then NO scenarios will be executed. Kur esht @emp do execute 2 scenarios sepse e kane te perbashket kte tag.
+        tags = "@smoke",  // pra run vec scenario tek @sprint4 jo scenario e tjera. Ne kte rast ose ali ose nafiseh. Nqs eshte @ali and @nafiseh then NO scenarios will be executed. Kur esht @emp do execute 2 scenarios sepse e kane te perbashket kte tag.
 
         //for generating the report | use the keybord "pretty" to see step definition in console
         //in your framework all reports should be generated under target folder (we will generate html report in target folder)
@@ -20,11 +20,5 @@ import org.junit.runner.RunWith;
 )
 
 
-public class RunnersClass {
-    //this block will be empty we don't write code here
-
+public class SmokeRunner {
 }
-
-
-
-

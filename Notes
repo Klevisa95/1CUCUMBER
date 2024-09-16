@@ -193,6 +193,7 @@ Page initializer class --> to create objects of the classes. We call this in Com
 Reporting in Framework--> means how many test cases you've executed
 To open report right click on the report - open in - browser - chrome
 
+We have to add maven mojo to pom.xml to generate reports.
 
 
 
