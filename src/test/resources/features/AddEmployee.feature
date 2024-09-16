@@ -48,3 +48,14 @@ Feature: add employee scenario
     @excel
     Scenario: Adding multiple employees from excel file
       When user adds multiple employees from excel using "Sheet1" and verify
+
+
+
+
+      @datatable
+      Scenario: adding multiple employees from data table
+        When user adds multiple employees from data table
+          | firstName     | middleName    | lastName    |
+          | donald12        | ms            | duck        |
+          | tamoha12        | ms            | jimo        |
+          | joe12           | ms            | trump       |
