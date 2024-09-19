@@ -423,6 +423,9 @@ Integration: JUnit integrates well with popular Java build tools (e.g., Maven, G
 
 JUnit is commonly used in Test-Driven Development (TDD) practices, where tests are written first, and then the code is written to pass those tests.
 
+*In API.feature we write all gherkin scenarios to execute and validate
+to keep step definitions, we have to create another steps package for API
+just to avoid hooks in API, we need new steps package
 
 
 
