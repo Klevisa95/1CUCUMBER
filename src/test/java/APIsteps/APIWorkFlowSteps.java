@@ -8,6 +8,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import org.junit.runner.Request;
+import utils.APIConstants;
+import utils.APIPayloadConstants;
 
 import java.util.List;
 import java.util.Map;
@@ -26,16 +28,22 @@ public class APIWorkFlowSteps {
 
     @Given("a JWT is generated")
     public void a_jwt_is_generated() {
-
+/*
         //prepare the request | here we are creating the token so we write all elements: body, header
         request = given().
-                header("Content-Type", "application/json").
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value). //merre nga api constants
                 body("{\n" +
                         "  \"email\": \"testbatch1721@gmail.com\",\n" +
                         "  \"password\": \"Test@1231\"\n" +
-                        "}");
+                        "}"); //merre tek generate token postman top code
+
+ */
+        RequestSpecification request = given().
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value).
+                body(APIPayloadConstants.generateTokenPayload());
+
         //send the request
-        response = request.when().post("/generateToken.php");
+       Response response = request.when().post(APIConstants.GENERATE_TOKEN_URI); //header coming from constants | body coming from payloadconstants
         //storing the token after generating
         token = "Bearer" + response.jsonPath().getString("token");
         System.out.println(token);
@@ -45,10 +53,10 @@ public class APIWorkFlowSteps {
 
     @Given("a request is prepared to create an employee")
     public void a_request_is_prepared_to_create_an_employee() {
-
+/*
         request = given().
-                header("Content-Type", "application/json").
-                header("Authorization", token)
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value).
+                header(APIConstants.Header_Authorization_key, token)
                 .body("{\n" +
                         "  \"emp_firstname\": \"klevisa\",\n" +
                         "  \"emp_lastname\": \"kolaj\",\n" +
@@ -58,12 +66,19 @@ public class APIWorkFlowSteps {
                         "  \"emp_status\": \"confirmed\",\n" +
                         "  \"emp_job_title\": \"sdet\"\n" +
                         "}");
+
+ */
+        request = given().
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value).
+                header(APIConstants.Header_Authorization_key, token)
+                .body(APIPayloadConstants.createEmployeePayload()); //take this from APi payload constants to avoid writing the body
+
     }
 
     @When("a POST call is made to create an employee")
     public void a_post_call_is_made_to_create_an_employee() {
 
-        response = request.when().post("/createEmployee.php");
+        response = request.when().post(APIConstants.CREATE_EMPLOYEE_URI);
         //to print the response in console
         response.prettyPrint();
 
@@ -98,10 +113,9 @@ public class APIWorkFlowSteps {
 
     @Given("a request is prepared to get the created employee")
     public void aRequestIsPreparedToGetTheCreatedEmployee() {
-
         request = given().
-                header("Content-Type", "application/json").
-                header("Authorization", token).
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value).
+                header(APIConstants.Header_Authorization_key, token).
                 queryParam("employee_id", employee_id);
 
 
@@ -109,7 +123,7 @@ public class APIWorkFlowSteps {
 
     @When("a GET call is made to get the employee")
     public void aGETCallIsMadeToGetTheEmployee() {
-        response = request.when().get("/getOneEmployee.php");
+        response = request.when().get(APIConstants.GET_ONE_EMPLOYEE_URI);
         response.prettyPrint();
        // response.then().assertThat().statusCode(200);
 
