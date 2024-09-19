@@ -36,8 +36,8 @@ Feature: Syntax API workflow feature
         And the response body contains "Message" key and value "Employee Created"
 
 
-        @jsondynamic
-  Scenario: Creating the employee using json payload
+     @jsondynamic
+    Scenario: Creating the employee using json payload
     Given a request is prepared for creating an employee with dynamic data "klevisa", "kolaj", "ms", "F", "1995-10-10", "confirmed", "sdet"
     When a POST call is made to create an employee
     Then the status code for this request is 201
@@ -45,3 +45,9 @@ Feature: Syntax API workflow feature
     And the response body contains "Message" key and value "Employee Created"
 
 
+
+          @update
+          Scenario: Updating the employee
+            Given a request is prepared to update an employee in HRMS system
+            When a PUT call is made to update the employee
+            Then the status code for updating the employee is 200

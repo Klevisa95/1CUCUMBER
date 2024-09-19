@@ -204,6 +204,33 @@ public class APIWorkFlowSteps {
                 .body(APIPayloadConstants.payloadDynamic(firstName, lastName, middleName,
                         gender, birthday, status, jobtitle));
 
+        //-----------------------------------------------------------------------------------------
+
+
+        @Given("a request is prepared to update an employee in HRMS system")
+        public void a_request_is_prepared_to_update_an_employee_in_hrms_system() {
+
+            request=given().header(APIConstants.Header_Content_Type,
+                    APIConstants.Content_Type_Value).
+                    header(APIConstants.Header_Authorization_key, token).
+                    body(APIPayloadConstants.updateEmployeePayload());
+
+
+        }
+        @When("a PUT call is made to update the employee")
+        public void a_put_call_is_made_to_update_the_employee() {
+
+            response=request.when().put(APIConstants.UPDATE_EMPLOYEE_URI);
+            response.prettyPrint();
+
+        }
+        @Then("the status code for updating the employee is {int}")
+        public void the_status_code_for_updating_the_employee_is(Integer statusCode) {
+
+            response.then().assertThat().statusCode(statusCode);
+        }
+
+
     }
 }
 

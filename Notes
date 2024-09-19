@@ -427,6 +427,19 @@ JUnit is commonly used in Test-Driven Development (TDD) practices, where tests a
 to keep step definitions, we have to create another steps package for API
 just to avoid hooks in API, we need new steps package
 
+Hamcrest Matchers --> equalTo (it has assertions, through which we verify all keys and values of the body, response headers and messages).
+
+we are validating the status of the code
+we are validating the body of the response
+we are validating the headers of the response
+we are validating the messages od the body
+
+
+Feature: "Login Functionality" – Describes the feature you are testing.
+Scenario: "Successful login with valid credentials" – A single test case.
+Given: Describes the initial context, like "I am on the login page."
+When: The action you perform, such as "I enter valid username and password."
+Then: The expected outcome, like "I should be redirected to the dashboard."
 
 
 
