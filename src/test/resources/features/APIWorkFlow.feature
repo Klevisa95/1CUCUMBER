@@ -36,3 +36,12 @@ Feature: Syntax API workflow feature
         And the response body contains "Message" key and value "Employee Created"
 
 
+        @jsondynamic
+  Scenario: Creating the employee using json payload
+    Given a request is prepared for creating an employee with dynamic data "klevisa", "kolaj", "ms", "F", "1995-10-10", "confirmed", "sdet"
+    When a POST call is made to create an employee
+    Then the status code for this request is 201
+    And the employee id "Employee.employee_id" is stored as global variable for another
+    And the response body contains "Message" key and value "Employee Created"
+
+

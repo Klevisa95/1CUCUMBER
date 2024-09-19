@@ -43,7 +43,7 @@ public class APIWorkFlowSteps {
                 body(APIPayloadConstants.generateTokenPayload());
 
         //send the request
-       Response response = request.when().post(APIConstants.GENERATE_TOKEN_URI); //header coming from constants | body coming from payloadconstants
+        Response response = request.when().post(APIConstants.GENERATE_TOKEN_URI); //header coming from constants | body coming from payloadconstants
         //storing the token after generating
         token = "Bearer" + response.jsonPath().getString("token");
         System.out.println(token);
@@ -125,7 +125,7 @@ public class APIWorkFlowSteps {
     public void aGETCallIsMadeToGetTheEmployee() {
         response = request.when().get(APIConstants.GET_ONE_EMPLOYEE_URI);
         response.prettyPrint();
-       // response.then().assertThat().statusCode(200);
+        // response.then().assertThat().statusCode(200);
 
 
     }
@@ -183,15 +183,78 @@ public class APIWorkFlowSteps {
                 header(APIConstants.Header_Authorization_key, token)
                 .body(APIPayloadConstants.createEmployeeJsonPayload()); // take this from "when a request is made to create the employee, change just the body)
     }
-    @Then("the response body contains {string} key and value {string}")
-    public void the_response_body_contains_key_and_value(String key, String value) {
-       response.then().assertThat().body(key,equalTo(value));
 
 
+    @And("the employee id {string} is stored as global variable for another")
+    public void theEmployeeIdIsStoredAsGlobalVariableForAnother(String arg0) {
 
 
     }
+
+
+    @Given("a request is prepared for creating an employee with dynamic data {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void a_request_is_prepared_for_creating_an_employee_with_dynamic_data
+            (String firstName, String lastName, String middleName,
+             String gender, String birthday, String status, String jobtitle) {
+
+
+        request = given().
+                header(APIConstants.Header_Content_Type, APIConstants.Content_Type_Value).
+                header(APIConstants.Header_Authorization_key, token)
+                .body(APIPayloadConstants.payloadDynamic(firstName, lastName, middleName,
+                        gender, birthday, status, jobtitle));
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
