@@ -27,5 +27,12 @@ Feature: Syntax API workflow feature
 
 
 
+      @json
+      Scenario: Creating the employee using json payload
+        Given a request is prepared for creating an employee via json payload
+        When a POST call is made to create an employee
+        Then the status code for this request is 201
+        And the employee id "Employee.employee_id" is stored as global variable for another
+        And the response body contains "Message" key and value "Employee Created"
 
 
