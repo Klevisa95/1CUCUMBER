@@ -93,6 +93,7 @@ public class HardCodedExamples {
 
     }
 
+    @Test
 
     public void cUpdateEmployee(){
         RequestSpecification request = given().
@@ -112,6 +113,27 @@ public class HardCodedExamples {
         Response response = request.when().put("/updateEmployee.php");
         response.prettyPrint();
         response.then().assertThat().statusCode(200);
+
+    }
+
+    @Test
+    public void dgetupdatedEmployee(){
+
+        //prepare the request
+        RequestSpecification request = given().
+                header("Content-Type", "application/json").
+                header("Authorization", token).
+                queryParam("employee_id", employee_id);
+
+        Response response = request.when().get("/getOneEmployee.php");
+        response.prettyPrint();
+        response.then().assertThat().statusCode(200);
+
+        //validate the employee id's one from past call another from get call
+        String tempEmpId = response.jsonPath().
+                getString("employee.employee_id");
+        Assert.assertEquals(tempEmpId, employee_id);
+
 
     }
 }
