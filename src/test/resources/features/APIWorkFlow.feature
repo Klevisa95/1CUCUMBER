@@ -27,7 +27,7 @@ Feature: Syntax API workflow feature
 
 
 
-      @json
+      @api
       Scenario: Creating the employee using json payload
         Given a request is prepared for creating an employee via json payload
         When a POST call is made to create an employee
@@ -36,7 +36,7 @@ Feature: Syntax API workflow feature
         And the response body contains "Message" key and value "Employee Created"
 
 
-     @jsondynamic
+     @api
     Scenario: Creating the employee using json payload
     Given a request is prepared for creating an employee with dynamic data "klevisa", "kolaj", "ms", "F", "1995-10-10", "confirmed", "sdet"
     When a POST call is made to create an employee
@@ -46,7 +46,7 @@ Feature: Syntax API workflow feature
 
 
 
-          @update
+          @api
           Scenario: Updating the employee
             Given a request is prepared to update an employee in HRMS system
             When a PUT call is made to update the employee

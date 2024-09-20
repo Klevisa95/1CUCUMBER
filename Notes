@@ -429,10 +429,10 @@ just to avoid hooks in API, we need new steps package
 
 Hamcrest Matchers --> equalTo (it has assertions, through which we verify all keys and values of the body, response headers and messages).
 
-we are validating the status of the code
-we are validating the body of the response
-we are validating the headers of the response
-we are validating the messages od the body
+3 STEPS IN API TESTING:
+1. send the request to the end point
+2.retrieve the response
+3.assert (verify) that the response is correct
 
 
 Feature: "Login Functionality" – Describes the feature you are testing.
@@ -442,7 +442,41 @@ When: The action you perform, such as "I enter valid username and password."
 Then: The expected outcome, like "I should be redirected to the dashboard."
 
 
+REST ASSURED - is made to test APIS in BDD format.
 
+WHEN WORKING WITH REST ASSURED DO THESE STEPS:
+
+1. set the baseURI and you do this using --> RestAssured.baseURI = " "
+2.prepare the request using this keyword --> given().header().body().parameters() [if body. header or params are needed)
+example of request:
+given().header("Content-Type", "Application/json").
+        header("Authorization", token)
+        .body("{\n" +
+                                       "  \"employee_id\": \"" + employee_id + "\",\n" +
+                                       "  \"emp_firstname\": \"kleviskaa\",\n" +
+                                       "  \"emp_lastname\": \"kokakola\",\n" +
+                                       "  \"emp_middle_name\": \"ms\",\n" +
+                                       "  \"emp_gender\": \"F\",\n" +
+                                       "  \"emp_birthday\": \"2022-09-10\",\n" +
+                                       "  \"emp_status\": \"nope\",\n" +
+                                       "  \"emp_job_title\": \"ncuq\"\n" +
+                                       "}"
+
+
+pra kaluam headers me rralle + token + body per prepare request
+
+You can also save it in a form of variable like this: (me request nga para)
+Requestspecification request=given().header("Content-Type", "Application/json").
+                header("Authorization", token)
+                .body("
+
+
+3.tani send this request that you prepared:
+Response resp=request.when().post("endpoint");
+
+
+extracting the body
+resp.jsonPath().getString("")
 
 
 

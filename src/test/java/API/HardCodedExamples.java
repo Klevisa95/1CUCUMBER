@@ -13,7 +13,7 @@ public class HardCodedExamples {
 
     //in rest assured base uri = base URL
     String baseURI = RestAssured.baseURI = "http://hrm.syntaxtechs.net/syntaxapi/api"; //get url from swagger document
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjY3NTgzNTksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcyNjgwMTU1OSwidXNlcklkIjoiNjc3MiJ9.6Gmvliql51CSf3t3pCpHu_-19oUqTdRHufkHYASJ-oE"; //get the updated token
+    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjY4MDE1ODgsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTcyNjg0NDc4OCwidXNlcklkIjoiNjc3MiJ9.r50ByY5iT40lSXU59Ib08xQ5rsBF9LSWjXjDkKT5tQM";
     static String employee_id;
 
     @Test
